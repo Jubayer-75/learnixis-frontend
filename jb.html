@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Learnixis — Interactive English Learning</title>
+	<link rel="stylesheet" href="jb.css">
+</head>
+<body>
+	<header class="topbar">
+		<div class="brand">Learnixis</div>
+		<nav class="nav">
+			<button data-target="intro">Home</button>
+			<button data-target="login">Login</button>
+			<button data-target="welcome">Welcome</button>
+			<button data-target="synant">Synonyms</button>
+			<button data-target="gamify">Gamify</button>
+			<button data-target="convos">Conversations</button>
+			<button data-target="profile">Profile</button>
+			<button id="themeToggle" aria-label="Toggle theme">🌙</button>
+		</nav>
+	</header>
+
+	<main class="wrap">
+		<section id="intro" class="page active solid">
+			<div class="card">
+				<h1>Welcome to Learnixis</h1>
+				<p class="lead">Learnixis is a modern, animated English-learning platform focused on practical skills, gamification, and personalized learning.</p>
+				<div class="founder">
+					<img src="" alt="Founder" class="avatar" />
+					<div>
+						<h3>About The Founder</h3>
+						<p>Founded by Jane Doe — a passionate linguist and educator — Learnixis combines research-backed approaches with playful learning experiences.</p>
+					</div>
+				</div>
+				<div class="actions">
+					<button class="btn primary" data-target="welcome">Get Started</button>
+					<button class="btn" data-target="login">Sign In</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="login" class="page">
+			<div class="card narrow">
+				<h2>Sign in to Learnixis</h2>
+				<form id="loginForm">
+					<label>Email<div class="input"><input type="email" id="email" required></div></label>
+					<label>Password<div class="input"><input type="password" id="password" required></div></label>
+					<div class="row">
+						<button type="submit" class="btn primary">Login</button>
+						<button type="button" id="guestBtn" class="btn">Continue as Guest</button>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<section id="welcome" class="page">
+			<div class="card">
+				<h2>Welcome</h2>
+				<p>This dashboard guides you through courses, practice, and progress tracking.</p>
+				<div class="courses">
+					<article class="course">
+						<h3>Beginner Course</h3>
+						<p>Start with basics and foundational grammar.</p>
+						<button class="btn" data-course="beginner">Details</button>
+					</article>
+					<article class="course">
+						<h3>Intermediate Course</h3>
+						<p>Strengthen conversation and complex structures.</p>
+						<button class="btn" data-course="intermediate">Details</button>
+					</article>
+					<article class="course">
+						<h3>Advanced Course</h3>
+						<p>Advanced syntax, nuance, and fluency practice.</p>
+						<button class="btn" data-course="advanced">Details</button>
+					</article>
+				</div>
+				<div id="courseDetail" class="modal hidden">
+					<div class="modal-content">
+						<button class="close">×</button>
+						<h3 id="cd-title">Course</h3>
+						<p id="cd-desc"></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="synant" class="page">
+			<div class="card full">
+				<h2>Synonyms & Antonyms</h2>
+				<p class="muted">Explore 300 synonym/antonym pairs. Use search to filter.</p>
+				<div class="searchRow">
+					<input id="saSearch" placeholder="Search word...">
+					<select id="saFilter"><option value="all">All</option><option value="syn">Has synonym</option><option value="ant">Has antonym</option></select>
+				</div>
+				<div id="saList" class="sa-list"></div>
+				<div class="pager">
+					<button id="prevPage" class="btn">Prev</button>
+					<span id="pageInfo"></span>
+					<button id="nextPage" class="btn">Next</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="gamify" class="page">
+			<div class="card">
+				<h2>Grammar Game</h2>
+				<p class="muted">Timed challenges to build grammar fluency.</p>
+				<div class="game">
+					<div id="gameArea">
+						<div id="question"></div>
+						<div id="choices" class="choices"></div>
+						<div class="row">
+							<button id="nextQ" class="btn">Next</button>
+							<button id="startGame" class="btn primary">Start</button>
+						</div>
+						<div id="gameScore" class="muted"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="convos" class="page">
+			<div class="card full">
+				<h2>Conversation Situations</h2>
+				<p class="muted">50 real-life conversation scenarios with example dialogues.</p>
+				<div id="convoList" class="convo-list"></div>
+			</div>
+		</section>
+
+		<section id="profile" class="page">
+			<div class="card narrow">
+				<h2>Your Profile & Dashboard</h2>
+				<form id="profileForm">
+					<label>Name<div class="input"><input id="pname"></div></label>
+					<label>Bio<div class="input"><textarea id="pbio"></textarea></div></label>
+					<label>Level<div class="input"><select id="plevel"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div></label>
+					<div class="row">
+						<button type="submit" class="btn primary">Save Profile</button>
+						<button type="button" id="resetProfile" class="btn">Reset</button>
+					</div>
+				</form>
+				<div id="profileCard" class="profile-card hidden">
+					<h3 id="pc-name"></h3>
+					<p id="pc-bio"></p>
+					<p><strong>Level:</strong> <span id="pc-level"></span></p>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">© Learnixis — Built with care</footer>
+
+	<script src="jb.js"></script>
+</body>
+</html>
+
